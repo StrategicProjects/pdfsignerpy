@@ -1,0 +1,36 @@
+site_name: pdfsigner (Python)
+site_description: Digitally sign and verify PDF documents (PAdES) with a pure-Rust backend.
+site_url: https://strategicprojects.github.io/pdfsignerpy/
+repo_url: https://github.com/StrategicProjects/pdfsignerpy
+repo_name: StrategicProjects/pdfsignerpy
+edit_uri: ""
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - API reference: api.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true

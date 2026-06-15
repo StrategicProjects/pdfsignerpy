@@ -1,0 +1,35 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "pdfsigner"
+description = "Digitally sign and verify PDF documents (PAdES) with a pure-Rust backend — no Java, no OpenSSL."
+requires-python = ">=3.9"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "André Leite", email = "leite@castlab.org" }]
+readme = "README.md"
+keywords = ["pdf", "sign", "signature", "pades", "pkcs12", "cms", "verify", "rust"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Office/Business",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://strategicprojects.github.io/pdfsignerpy/"
+Repository = "https://github.com/StrategicProjects/pdfsignerpy"
+Issues = "https://github.com/StrategicProjects/pdfsignerpy/issues"
+
+[tool.maturin]
+python-source = "python"
+module-name = "pdfsigner._pdfsigner"
+features = ["pyo3/extension-module"]
