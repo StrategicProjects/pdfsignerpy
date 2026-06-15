@@ -3,8 +3,10 @@ requires = ["maturin>=1.7,<2"]
 build-backend = "maturin"
 
 [project]
-name = "pdfsigner"
-description = "Digitally sign and verify PDF documents (PAdES) with a pure-Rust backend — no Java, no OpenSSL."
+# Distribution name on PyPI (the import name stays `pdfsigner`); `pdfsigner`
+# itself is blocked by PyPI as too similar to the existing `pdf-signer`.
+name = "pdfsignerpy"
+description = "Digitally sign and verify PDF documents (PAdES) with a pure-Rust backend — no Java, no OpenSSL. Import as `pdfsigner`."
 requires-python = ">=3.9"
 license = { text = "GPL-3.0-or-later" }
 authors = [{ name = "André Leite", email = "leite@castlab.org" }]

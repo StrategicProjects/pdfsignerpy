@@ -67,7 +67,7 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     environment:
       name: pypi
-      url: https://pypi.org/project/pdfsigner/
+      url: https://pypi.org/project/pdfsignerpy/
     permissions:
       id-token: write   # OIDC token for PyPI Trusted Publishing
     steps:

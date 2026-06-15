@@ -21,11 +21,14 @@ A Rust toolchain is required to build from source (until wheels are published).
 Install Rust from <https://rustup.rs>, then:
 
 ```bash
-pip install pdfsigner            # once wheels are on PyPI
+pip install pdfsignerpy          # once wheels are on PyPI; then `import pdfsigner`
 # or, from a checkout:
 pip install maturin
 maturin develop --release
 ```
+
+> The PyPI distribution is **`pdfsignerpy`**, but you `import pdfsigner`
+> (the name `pdfsigner` is blocked on PyPI as too similar to `pdf-signer`).
 
 ## Usage
 

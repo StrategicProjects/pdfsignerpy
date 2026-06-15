@@ -1,4 +1,8 @@
-# Releasing `pdfsigner` to PyPI
+# Releasing `pdfsignerpy` to PyPI
+
+The PyPI **distribution** name is `pdfsignerpy` (the **import** name stays
+`pdfsigner`; PyPI blocks `pdfsigner` itself as too similar to the existing
+`pdf-signer`). So users run `pip install pdfsignerpy` and then `import pdfsigner`.
 
 Publishing is automated by `.github/workflows/release.yml`. It builds abi3
 wheels (Linux x86_64/aarch64, macOS x86_64/arm64, Windows x64) plus an sdist and
@@ -7,13 +11,13 @@ to store or rotate.
 
 ## One-time setup on PyPI
 
-Because `pdfsigner` is not yet on PyPI, register a *pending* trusted publisher
+Because `pdfsignerpy` is not yet on PyPI, register a *pending* trusted publisher
 (this also reserves the name on first publish):
 
 1. Sign in at <https://pypi.org> → **Account → Publishing** →
    *Add a pending publisher*.
 2. Fill in:
-   - **PyPI Project Name**: `pdfsigner`
+   - **PyPI Project Name**: `pdfsignerpy`
    - **Owner**: `StrategicProjects`
    - **Repository name**: `pdfsignerpy`
    - **Workflow name**: `release.yml`

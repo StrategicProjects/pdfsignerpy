@@ -13,11 +13,15 @@ the Python sibling of the
 ## Install
 
 ```bash
-pip install pdfsigner            # once wheels are published
+pip install pdfsignerpy          # once wheels are published; then `import pdfsigner`
 # or, from a checkout (needs a Rust toolchain from https://rustup.rs):
 pip install maturin
 maturin develop --release
 ```
+
+!!! note
+    The PyPI distribution is **`pdfsignerpy`**, but you `import pdfsigner`
+    (`pdfsigner` is blocked on PyPI as too similar to `pdf-signer`).
 
 ## Quick start
 
