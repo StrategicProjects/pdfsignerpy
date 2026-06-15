@@ -76,6 +76,15 @@ pdfsigner.verify_pdf("signed.pdf", roots="icp-brasil-roots.pem")
   optional **RFC 5280 chain validation** (RSA / ECDSA / Ed25519, CRL + OCSP,
   name constraints and a NIST PKITS-validated policy engine).
 
+## Architecture
+
+<img src="docs/architecture.svg" alt="pdfsigner (Python) architecture: the Python API (sign_pdf / verify_pdf) calls a PyO3 extension module, which links the pure-Rust pdf_signer crate and its dependencies, producing PAdES-signed PDFs and a verification report." width="100%" />
+
+`import pdfsigner` calls a thin [PyO3](https://pyo3.rs/) extension module that
+links the pure-Rust **`pdf_signer`** crate (a git dependency pinned to `v0.1.7`).
+The same engine powers the
+[`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
+
 ## License
 
 GPL-3.0-or-later. The bundled `pdf_signer` crate and its Rust dependencies
