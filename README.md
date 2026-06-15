@@ -1,31 +1,60 @@
 # pdfsigner (Python)
 
+[![PyPI](https://img.shields.io/pypi/v/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
+[![Python versions](https://img.shields.io/pypi/pyversions/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
+[![Downloads](https://img.shields.io/pypi/dm/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
 [![CI](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml/badge.svg)](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![pure Rust](https://img.shields.io/badge/backend-pure%20Rust-success.svg)
 
-Digitally **sign** PDF documents with a PKCS#12 keystore and **verify** their
-signatures — implementing the **PAdES** baseline profiles (ETSI EN 319 142)
-from **B-B to B-LTA**.
+> Digitally **sign** and **verify** PDF documents — full **PAdES** (ETSI EN 319
+> 142) from **B-B to B-LTA** — with a **single, dependency-free wheel**.
+> No Java, no OpenSSL, no Poppler, no system libraries.
 
-The heavy lifting is done by the pure-Rust
-[`pdf_signer`](https://github.com/StrategicProjects/pdf_signer) crate, wrapped
-with [PyO3](https://pyo3.rs/): **no Java runtime, no OpenSSL, no external
-command-line tools** — a single self-contained extension module. It is the
-Python sibling of the
-[`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
+```bash
+pip install pdfsignerpy      # pre-built wheels — no compiler, no Rust needed
+```
+```python
+import pdfsigner
+pdfsigner.sign_pdf("in.pdf", "out.pdf", "keystore.p12", "password")
+print(pdfsigner.verify_pdf("out.pdf")[0]["valid"])   # True
+```
+
+## Why pdfsigner?
+
+Most Python PDF-signing libraries lean on heavy native stacks — OpenSSL via
+`cryptography`, a Java runtime, or external tools like Poppler. `pdfsigner`
+bundles the **entire crypto + PDF pipeline as one self-contained Rust extension**
+(the pure-Rust [`pdf_signer`](https://github.com/StrategicProjects/pdf_signer)
+crate, wrapped with [PyO3](https://pyo3.rs/)).
+
+- 🦀 **Zero system dependencies** — no OpenSSL, no Java, no Poppler, no `cffi`.
+  One wheel, nothing to apt-get.
+- 📦 **Pre-built wheels** for Linux (x86_64 · aarch64), macOS (Intel · Apple
+  Silicon, universal2) and Windows — `pip install` and go, no Rust toolchain.
+- 🔏 **Real PAdES, B-B → B-LTA** — CAdES `signing-certificate-v2`, RFC 3161
+  signature **and** document timestamps, and long-term validation (`/DSS` with
+  the chain, CRLs and OCSP).
+- ✅ **Verification you can trust** — RFC 5280 path validation whose name
+  constraints and certificate-policy engine are **validated against the NIST
+  PKITS** suite (42/42 policy + 38/38 name-constraint tests).
+- 🔑 **Modern keys** — RSA, ECDSA (P-256/P-384) and Ed25519; CRL + OCSP
+  revocation.
+- 🖋 **Rich visible signatures** — a bordered box with an **embedded
+  TrueType/OpenType font** and a **PNG/JPEG logo**, placed anywhere on any page.
+- 🧩 **Incremental updates** — sign repeatedly; earlier signatures stay valid.
+- 🔁 **One engine, two languages** — the same backend powers the
+  [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
 ## Installation
 
-A Rust toolchain is required to build from source (until wheels are published).
-Install Rust from <https://rustup.rs>, then:
-
 ```bash
-pip install pdfsignerpy          # once wheels are on PyPI; then `import pdfsigner`
-# or, from a checkout:
-pip install maturin
-maturin develop --release
+pip install pdfsignerpy
 ```
+
+Wheels are published for common platforms, so installation needs **no compiler
+and no Rust**. To build from source on an unsupported platform, install a Rust
+toolchain from <https://rustup.rs> first (pip will compile it automatically).
 
 > The PyPI distribution is **`pdfsignerpy`**, but you `import pdfsigner`
 > (the name `pdfsigner` is blocked on PyPI as too similar to `pdf-signer`).
@@ -63,18 +92,6 @@ pdfsigner.verify_pdf("signed.pdf", roots="icp-brasil-roots.pem")
 `verify_pdf` returns one dict per signature with keys: `valid`, `signer`,
 `chain_trusted` (bool or `None` when no `roots` given), `covers_whole_document`,
 `signed_len`, `byte_range` and `detail`.
-
-## What it does
-
-- **PAdES B-B → B-LTA**: CAdES `signing-certificate-v2`, RFC 3161 signature and
-  document timestamps, a `/DSS` with the certificate chain, CRLs and OCSP.
-- **Visible or invisible** signatures, with a bordered text box, an optional
-  **embedded TrueType/OpenType font** and a **PNG/JPEG logo**.
-- **Incremental updates** so multiple signatures compose and earlier ones stay
-  valid.
-- **Verification** of the message digest and the signer's signature, plus
-  optional **RFC 5280 chain validation** (RSA / ECDSA / Ed25519, CRL + OCSP,
-  name constraints and a NIST PKITS-validated policy engine).
 
 ## Architecture
 

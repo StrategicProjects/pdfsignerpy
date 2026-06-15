@@ -13,15 +13,33 @@ the Python sibling of the
 ## Install
 
 ```bash
-pip install pdfsignerpy          # once wheels are published; then `import pdfsigner`
-# or, from a checkout (needs a Rust toolchain from https://rustup.rs):
-pip install maturin
-maturin develop --release
+pip install pdfsignerpy
 ```
+
+Pre-built wheels are published for Linux (x86_64 · aarch64), macOS (Intel ·
+Apple Silicon) and Windows, so installation needs **no compiler and no Rust**.
 
 !!! note
     The PyPI distribution is **`pdfsignerpy`**, but you `import pdfsigner`
     (`pdfsigner` is blocked on PyPI as too similar to `pdf-signer`).
+
+## Why pdfsigner?
+
+Most Python PDF-signing libraries lean on heavy native stacks — OpenSSL via
+`cryptography`, a Java runtime, or external tools like Poppler. `pdfsigner`
+bundles the **entire crypto + PDF pipeline as one self-contained Rust
+extension**, so there is nothing else to install.
+
+- 🦀 **Zero system dependencies** — no OpenSSL, no Java, no Poppler.
+- 📦 **Pre-built wheels** for Linux/macOS/Windows — `pip install` and go.
+- 🔏 **Real PAdES B-B → B-LTA** — RFC 3161 timestamps and LTV (`/DSS` with the
+  chain, CRLs and OCSP).
+- ✅ **NIST PKITS-validated** RFC 5280 path validation (name constraints +
+  certificate-policy engine).
+- 🔑 RSA, ECDSA (P-256/P-384) and Ed25519; CRL + OCSP revocation.
+- 🖋 Visible signatures with an embedded font and a PNG/JPEG logo.
+- 🔁 The same engine powers the
+  [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
 ## Quick start
 
