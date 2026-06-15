@@ -36,7 +36,9 @@ jobs:
         with:
           target: ${{ matrix.platform.target }}
           args: --release --out dist
-          sccache: "true"
+          # No sccache: it wraps the C/asm compiler and breaks `ring`'s ARM
+          # assembly on the aarch64 cross-build ("ARM assembler must define
+          # __ARM_ARCH").
           manylinux: auto
 
       - uses: actions/upload-artifact@v4
