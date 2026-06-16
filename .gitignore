@@ -24,3 +24,9 @@ wheelhouse/
 
 # macOS
 .DS_Store
+
+# AI assistant artifacts
+CLAUDE.md
+AGENTS.md
+memory/
+PLAN.md
