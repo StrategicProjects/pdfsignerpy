@@ -1206,8 +1206,8 @@ dependencies = [
 
 [[package]]
 name = "pdf_signer"
-version = "0.1.7"
-source = "git+https://github.com/StrategicProjects/pdf_signer?tag=v0.1.7#e26040ac2fb47ecf14e0891518602521c4060707"
+version = "0.2.0"
+source = "git+https://github.com/StrategicProjects/pdf_signer?tag=v0.2.0#ee836eef67cc5191be2c443402caddb02177f098"
 dependencies = [
  "clap",
  "cms",
@@ -1236,7 +1236,7 @@ dependencies = [
 
 [[package]]
 name = "pdfsigner-py"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "pdf_signer",
  "pyo3",
