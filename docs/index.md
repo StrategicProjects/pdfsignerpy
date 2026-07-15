@@ -61,7 +61,7 @@ See the [API reference](api.md) for every option.
 
 `import pdfsigner` calls a thin [PyO3](https://pyo3.rs/) extension module that
 links the pure-Rust [`pdf_signer`](https://github.com/StrategicProjects/pdf_signer)
-crate (pinned to `v0.1.7`). The same engine powers the
+crate (pinned to `v0.2.0`). The same engine powers the
 [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
 ## Features

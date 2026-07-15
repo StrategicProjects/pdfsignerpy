@@ -39,7 +39,7 @@
 
     <!-- Band 3: pdf_signer crate -->
     <rect x="30" y="232" width="820" height="128" rx="14" fill="#E9F7EF" stroke="#2E9E5B" stroke-width="1.5"/>
-    <text x="48" y="254" font-size="12" font-weight="700" letter-spacing="1.5" fill="#1C6B3C">pdf_signer CRATE  ·  git dep v0.1.7  ·  100% pure Rust</text>
+    <text x="48" y="254" font-size="12" font-weight="700" letter-spacing="1.5" fill="#1C6B3C">pdf_signer CRATE  ·  git dep v0.2.0  ·  100% pure Rust</text>
     <g font-size="12" fill="#1C6B3C" text-anchor="middle">
       <rect x="42"  y="266" width="144" height="34" rx="8" fill="#ffffff" stroke="#2E9E5B"/><text x="114" y="288">sign</text>
       <rect x="200" y="266" width="144" height="34" rx="8" fill="#ffffff" stroke="#2E9E5B"/><text x="272" y="288">verify</text>
