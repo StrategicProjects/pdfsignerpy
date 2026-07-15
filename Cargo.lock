@@ -1236,7 +1236,7 @@ dependencies = [
 
 [[package]]
 name = "pdfsigner-py"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "pdf_signer",
  "pyo3",

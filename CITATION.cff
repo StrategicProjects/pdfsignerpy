@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "pdfsignerpy: digitally sign and verify PDF documents (PAdES) with a pure-Rust backend"
+type: software
+version: 0.2.1
+license: GPL-3.0-or-later
+repository-code: "https://github.com/StrategicProjects/pdfsignerpy"
+url: "https://strategicprojects.github.io/pdfsignerpy/"
+keywords:
+  - pdf
+  - digital-signature
+  - pades
+  - pkcs12
+  - cms
+  - verify
+  - rust
+  - pyo3
+  - python
+authors:
+  - given-names: André
+    family-names: Leite
+    email: leite@castlab.org
+    affiliation: Universidade Federal de Pernambuco
+  - given-names: Hugo
+    family-names: Vasconcelos
+    email: hugo.vasconcelos@ufpe.br
+    affiliation: Universidade Federal de Pernambuco
+  - given-names: Diogo
+    family-names: Bezerra
+    email: diogo.bezerra@ufpe.br
+    affiliation: Universidade Federal de Pernambuco
+  - given-names: Marcos
+    family-names: Wasiliew
+    email: marcos.wasilew@gmail.com
+    affiliation: Universidade Federal de Pernambuco
+  - given-names: Carlos
+    family-names: Amorim
+    email: carlos.agaf@ufpe.br
+    affiliation: Universidade Federal de Pernambuco

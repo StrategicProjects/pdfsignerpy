@@ -1,0 +1,44 @@
+{
+  "title": "pdfsignerpy: digitally sign and verify PDF documents (PAdES) with a pure-Rust backend",
+  "description": "Python bindings (PyO3) over the pure-Rust pdf_signer engine to digitally sign and verify PDF documents with full PAdES (ETSI EN 319 142) support, from B-B to B-LTA. No Java, no OpenSSL, no external tools. Installed from PyPI as `pdfsignerpy` and imported as `pdfsigner`.",
+  "upload_type": "software",
+  "version": "0.2.1",
+  "language": "eng",
+  "license": "GPL-3.0-or-later",
+  "access_right": "open",
+  "keywords": [
+    "pdf",
+    "digital-signature",
+    "pades",
+    "pkcs12",
+    "cms",
+    "verify",
+    "rust",
+    "pyo3",
+    "python"
+  ],
+  "creators": [
+    { "name": "Leite, André", "affiliation": "Universidade Federal de Pernambuco" },
+    { "name": "Vasconcelos, Hugo", "affiliation": "Universidade Federal de Pernambuco" },
+    { "name": "Bezerra, Diogo", "affiliation": "Universidade Federal de Pernambuco" },
+    { "name": "Wasiliew, Marcos", "affiliation": "Universidade Federal de Pernambuco" },
+    { "name": "Amorim, Carlos", "affiliation": "Universidade Federal de Pernambuco" }
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "https://pypi.org/project/pdfsignerpy/",
+      "scheme": "url"
+    },
+    {
+      "relation": "isDerivedFrom",
+      "identifier": "https://github.com/StrategicProjects/pdf_signer",
+      "scheme": "url"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/StrategicProjects/pdfsignerpy",
+      "scheme": "url"
+    }
+  ]
+}

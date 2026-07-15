@@ -9,7 +9,14 @@ name = "pdfsignerpy"
 description = "Digitally sign and verify PDF documents (PAdES) with a pure-Rust backend — no Java, no OpenSSL. Import as `pdfsigner`."
 requires-python = ">=3.9"
 license = { text = "GPL-3.0-or-later" }
-authors = [{ name = "André Leite", email = "leite@castlab.org" }]
+authors = [
+    { name = "André Leite", email = "leite@castlab.org" },
+    { name = "Hugo Vasconcelos", email = "hugo.vasconcelos@ufpe.br" },
+    { name = "Diogo Bezerra", email = "diogo.bezerra@ufpe.br" },
+    { name = "Marcos Wasiliew", email = "marcos.wasilew@gmail.com" },
+    { name = "Carlos Amorim", email = "carlos.agaf@ufpe.br" },
+]
+maintainers = [{ name = "André Leite", email = "leite@castlab.org" }]
 readme = "README.md"
 keywords = ["pdf", "sign", "signature", "pades", "pkcs12", "cms", "verify", "rust"]
 classifiers = [

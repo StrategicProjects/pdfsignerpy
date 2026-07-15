@@ -102,6 +102,19 @@ links the pure-Rust **`pdf_signer`** crate (a git dependency pinned to `v0.1.7`)
 The same engine powers the
 [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
+## Authors
+
+- **André Leite** — Universidade Federal de Pernambuco (maintainer)
+- **Hugo Vasconcelos** — Universidade Federal de Pernambuco
+- **Diogo Bezerra** — Universidade Federal de Pernambuco
+- **Marcos Wasiliew** — Universidade Federal de Pernambuco
+- **Carlos Amorim** — Universidade Federal de Pernambuco
+
+## Citation
+
+If you use this software, please cite it using the metadata in
+[`CITATION.cff`](CITATION.cff).
+
 ## License
 
 GPL-3.0-or-later. The bundled `pdf_signer` crate and its Rust dependencies

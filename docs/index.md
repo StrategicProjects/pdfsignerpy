@@ -74,3 +74,16 @@ crate (pinned to `v0.1.7`). The same engine powers the
   valid.
 - **Verification** with optional RFC 5280 chain validation (RSA / ECDSA /
   Ed25519, CRL + OCSP, name constraints, a NIST PKITS-validated policy engine).
+
+## Authors
+
+- **André Leite** — Universidade Federal de Pernambuco (maintainer)
+- **Hugo Vasconcelos** — Universidade Federal de Pernambuco
+- **Diogo Bezerra** — Universidade Federal de Pernambuco
+- **Marcos Wasiliew** — Universidade Federal de Pernambuco
+- **Carlos Amorim** — Universidade Federal de Pernambuco
+
+## Citation
+
+If you use this software, please cite it using the metadata in the project's
+[`CITATION.cff`](https://github.com/StrategicProjects/pdfsignerpy/blob/main/CITATION.cff).
