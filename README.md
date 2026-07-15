@@ -6,6 +6,7 @@
 [![CI](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml/badge.svg)](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![powered by pdf_signer](https://img.shields.io/badge/powered%20by-pdf__signer-2E9E5B?logo=rust&logoColor=white)](https://github.com/StrategicProjects/pdf_signer)
+[![DOI](https://zenodo.org/badge/1270135941.svg)](https://doi.org/10.5281/zenodo.21366112)
 
 > Digitally **sign** and **verify** PDF documents — full **PAdES** (ETSI EN 319
 > 142) from **B-B to B-LTA** — with a **single, dependency-free wheel**.

@@ -3,6 +3,7 @@ message: "If you use this software, please cite it using the metadata from this 
 title: "pdfsignerpy: digitally sign and verify PDF documents (PAdES) with a pure-Rust backend"
 type: software
 version: 0.2.1
+doi: 10.5281/zenodo.21366112
 license: GPL-3.0-or-later
 repository-code: "https://github.com/StrategicProjects/pdfsignerpy"
 url: "https://strategicprojects.github.io/pdfsignerpy/"
