@@ -1,8 +1,8 @@
 [package]
 name = "pdfsigner-py"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
-rust-version = "1.83"
+rust-version = "1.81"
 description = "Python bindings (PyO3) for the pure-Rust pdf_signer PAdES backend."
 license = "GPL-3.0-or-later"
 publish = false
@@ -15,7 +15,7 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = { version = "0.23", features = ["abi3-py39"] }
 # The signing/verification engine: the standalone pure-Rust crate, pinned.
-pdf_signer = { git = "https://github.com/StrategicProjects/pdf_signer", tag = "v0.3.1", features = ["https"] }
+pdf_signer = { git = "https://github.com/StrategicProjects/pdf_signer", tag = "v0.3.2", features = ["https"] }
 
 [profile.release]
 lto = true

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata from this file."
 title: "pdfsignerpy: digitally sign and verify PDF documents (PAdES) with a pure-Rust backend"
 type: software
-version: 0.3.0
+version: 0.3.1
 doi: 10.5281/zenodo.21366112
 license: GPL-3.0-or-later
 repository-code: "https://github.com/StrategicProjects/pdfsignerpy"
