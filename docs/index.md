@@ -1,5 +1,9 @@
 # pdfsigner (Python)
 
+[![PyPI](https://img.shields.io/pypi/v/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
+[![dev version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FStrategicProjects%2Fpdfsignerpy%2Fmain%2FCargo.toml&query=%24.package.version&label=dev%20version&color=orange)](https://github.com/StrategicProjects/pdfsignerpy)
+[![powered by pdf_signer](https://img.shields.io/badge/powered%20by-pdf__signer-2E9E5B?logo=rust&logoColor=white)](https://github.com/StrategicProjects/pdf_signer)
+
 Digitally **sign** PDF documents with a PKCS#12 keystore and **verify** their
 signatures — the **PAdES** baseline profiles (ETSI EN 319 142) from **B-B to
 B-LTA**.

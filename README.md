@@ -1,6 +1,7 @@
 # pdfsigner (Python)
 
 [![PyPI](https://img.shields.io/pypi/v/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
+[![dev version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FStrategicProjects%2Fpdfsignerpy%2Fmain%2FCargo.toml&query=%24.package.version&label=dev%20version&color=orange)](https://github.com/StrategicProjects/pdfsignerpy)
 [![Python versions](https://img.shields.io/pypi/pyversions/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
 [![Downloads](https://img.shields.io/pypi/dm/pdfsignerpy.svg)](https://pypi.org/project/pdfsignerpy/)
 [![CI](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml/badge.svg)](https://github.com/StrategicProjects/pdfsignerpy/actions/workflows/ci.yml)
