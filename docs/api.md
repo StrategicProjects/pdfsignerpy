@@ -52,10 +52,12 @@ each signer's certificate chain.
 
 | Key | Meaning |
 | --- | --- |
-| `valid` | `bool` — CMS signature valid over its byte range |
-| `signer` | signer subject DN (`str` or `None`) |
+| `valid` | `bool` — CMS signature (or RFC 3161 token) valid over its byte range |
+| `is_timestamp` | `bool` — `True` for a `/DocTimeStamp` entry |
+| `signer` | signer (or TSA) subject DN (`str` or `None`) |
 | `chain_trusted` | `bool` when `roots` given, else `None` |
 | `covers_whole_document` | `bool` |
+| `trusted_time` | epoch seconds of the trusted timestamp the chain was judged at, else `None` |
 | `signed_len` | bytes covered by the signature |
 | `byte_range` | the four `/ByteRange` integers |
 | `detail` | human-readable detail |
@@ -63,4 +65,25 @@ each signer's certificate chain.
 ```python
 for s in pdfsigner.verify_pdf("out.pdf", roots="icp-brasil-roots.pem"):
     print(s["valid"], s["chain_trusted"], s["signer"])
+```
+
+## `verify_pdf_report`
+
+```python
+pdfsigner.verify_pdf_report(input, roots=None) -> dict
+```
+
+The whole-document verdict. Returns a dict with:
+
+| Key | Meaning |
+| --- | --- |
+| `signatures` | the list `verify_pdf` returns |
+| `document_intact` | the last valid signature or document timestamp covers the whole file, or everything appended after it is a PAdES `/DSS`; an unsigned content change after signing makes this `False` |
+| `all_valid` | at least one signature, every entry valid, and `document_intact` |
+| `all_trusted` | `all_valid` and every entry chains to one of `roots` (always `False` without `roots`) |
+
+```python
+report = pdfsigner.verify_pdf_report("out.pdf", roots="icp-brasil-roots.pem")
+if not report["all_trusted"]:
+    raise SystemExit("signature rejected")
 ```

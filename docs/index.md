@@ -51,6 +51,8 @@ pdfsigner.sign_pdf("input.pdf", "signed.pdf", "keystore.p12", "password",
 
 for s in pdfsigner.verify_pdf("signed.pdf"):
     print(s["valid"], s["signer"])
+
+print(pdfsigner.verify_pdf_report("signed.pdf")["document_intact"])
 ```
 
 See the [API reference](api.md) for every option.
@@ -61,7 +63,7 @@ See the [API reference](api.md) for every option.
 
 `import pdfsigner` calls a thin [PyO3](https://pyo3.rs/) extension module that
 links the pure-Rust [`pdf_signer`](https://github.com/StrategicProjects/pdf_signer)
-crate (pinned to `v0.2.0`). The same engine powers the
+crate (pinned to `v0.3.1`). The same engine powers the
 [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
 ## Features

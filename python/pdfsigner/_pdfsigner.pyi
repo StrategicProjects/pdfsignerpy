@@ -14,6 +14,7 @@ def sign_pdf(
     reason: str | None = ...,
     name: str | None = ...,
     location: str | None = ...,
+    contact_info: str | None = ...,
     level: str = ...,
     tsa_url: str | None = ...,
     signtext: str | None = ...,
@@ -34,3 +35,9 @@ def verify_pdf(
     roots: _Path | None = ...,
 ) -> list[dict[str, Any]]:
     """Verify every signature in ``input``; returns one dict per signature."""
+
+def verify_pdf_report(
+    input: _Path,
+    roots: _Path | None = ...,
+) -> dict[str, Any]:
+    """Verify ``input``: ``signatures`` plus ``document_intact``, ``all_valid``, ``all_trusted``."""

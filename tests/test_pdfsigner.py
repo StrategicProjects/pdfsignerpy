@@ -84,3 +84,25 @@ def test_missing_input_raises(tmp_path):
 def test_wrong_password_raises(tmp_path):
     with pytest.raises(ValueError):
         pdfsigner.sign_pdf(SAMPLE, tmp_path / "x.pdf", KEYSTORE, "wrong-" + os.urandom(2).hex())
+
+
+def test_report_and_integrity(tmp_path):
+    out = tmp_path / "signed.pdf"
+    pdfsigner.sign_pdf(SAMPLE, out, KEYSTORE, PASSWORD, reason="Aprovação")
+    report = pdfsigner.verify_pdf_report(out)
+    assert report["document_intact"] is True
+    assert report["all_valid"] is True
+    assert report["all_trusted"] is False  # no roots given
+    s = report["signatures"][0]
+    assert s["is_timestamp"] is False
+    assert s["trusted_time"] is None
+
+    # An unsigned change appended after signing: the signature still verifies
+    # over its own bytes, but the document is no longer intact.
+    with open(out, "ab") as f:
+        f.write(b"\n% appended after signing\n")
+    report = pdfsigner.verify_pdf_report(out)
+    assert report["signatures"][0]["valid"] is True
+    assert report["signatures"][0]["covers_whole_document"] is False
+    assert report["document_intact"] is False
+    assert report["all_valid"] is False

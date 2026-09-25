@@ -88,18 +88,28 @@ for s in pdfsigner.verify_pdf("signed.pdf"):
 
 # Verify and validate the signer chain against trusted roots (e.g. ICP-Brasil).
 pdfsigner.verify_pdf("signed.pdf", roots="icp-brasil-roots.pem")
+
+# The whole-document verdict: every signature valid and trusted, and nothing
+# changed after the last signature (apart from a PAdES /DSS).
+report = pdfsigner.verify_pdf_report("signed.pdf", roots="icp-brasil-roots.pem")
+print(report["document_intact"], report["all_trusted"])
 ```
 
-`verify_pdf` returns one dict per signature with keys: `valid`, `signer`,
-`chain_trusted` (bool or `None` when no `roots` given), `covers_whole_document`,
-`signed_len`, `byte_range` and `detail`.
+`verify_pdf` returns one dict per signature or document timestamp with keys:
+`valid`, `is_timestamp`, `signer`, `chain_trusted` (bool or `None` when no
+`roots` given), `covers_whole_document`, `trusted_time` (epoch seconds of the
+trusted RFC 3161 time the chain was judged at, or `None`), `signed_len`,
+`byte_range` and `detail`. `verify_pdf_report` wraps that list as
+`signatures` together with `document_intact`, `all_valid` and `all_trusted` —
+use it for a pass/fail decision: a PDF whose content was changed by an unsigned
+incremental update after signing keeps `valid` signatures but is **not** intact.
 
 ## Architecture
 
 <img src="docs/architecture.svg" alt="pdfsigner (Python) architecture: the Python API (sign_pdf / verify_pdf) calls a PyO3 extension module, which links the pure-Rust pdf_signer crate and its dependencies, producing PAdES-signed PDFs and a verification report." width="100%" />
 
 `import pdfsigner` calls a thin [PyO3](https://pyo3.rs/) extension module that
-links the pure-Rust **`pdf_signer`** crate (a git dependency pinned to `v0.2.0`).
+links the pure-Rust **`pdf_signer`** crate (a git dependency pinned to `v0.3.1`).
 The same engine powers the
 [`pdfsigner` R package](https://github.com/StrategicProjects/pdfsigner).
 
