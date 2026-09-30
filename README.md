@@ -121,6 +121,7 @@ The same engine powers the
 - **Diogo Bezerra** — Universidade Federal de Pernambuco
 - **Marcos Wasiliew** — Universidade Federal de Pernambuco
 - **Carlos Amorim** — Universidade Federal de Pernambuco
+- **Júlia Nascimento Barreto**
 
 ## Citation
 
